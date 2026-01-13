@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation</title>
+  <meta name="description" content="Запрошення на весілля Анні та Джордана. 16.06.2026, Кишинів, Молдова">
+  
+  <link rel="stylesheet" href="style.css">
+  <!-- Подключение шрифта Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💛</text></svg>">
+  
+  <style>
+    /* Секция трансфера скрыта по умолчанию, будет показана если нужно */
+    #transfer-section {
+      display: none;
+    }
+    
+    /* Стили для новой секции с животными */
+    .animal-help {
+      padding: 2rem 1.25rem;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    
+    .animal-container {
+      background: linear-gradient(135deg, #f8f5f0, #f0ebe4);
+      border-radius: 24px;
+      padding: 2rem 1.5rem;
+      border: 1px solid rgba(214, 207, 196, 0.6);
+      box-shadow: 0 10px 30px rgba(107, 124, 111, 0.08);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .animal-container::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 80px;
+      height: 80px;
+      background: rgba(174, 199, 220, 0.15);
+      border-radius: 50%;
+    }
+    
+    .animal-container::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      width: 60px;
+      height: 60px;
+      background: rgba(112, 99, 89, 0.08);
+      border-radius: 50%;
+    }
+    
+    .animal-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    
+    .animal-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      color: #3a543e;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .animal-text {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 1.2rem;
+    }
+    
+    .animal-note {
+      font-size: 0.9rem;
+      color: #706359;
+      font-style: italic;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px dashed rgba(112, 99, 89, 0.3);
+    }
+    
+    .animal-paws {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .paw {
+      font-size: 1.2rem;
+      animation: bounce 2s infinite;
+    }
+    
+    .paw:nth-child(1) { animation-delay: 0s; }
+    .paw:nth-child(2) { animation-delay: 0.2s; }
+    .paw:nth-child(3) { animation-delay: 0.4s; }
+    .paw:nth-child(4) { animation-delay: 0.6s; }
+    .paw:nth-child(5) { animation-delay: 0.8s; }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    
+    /* Обновляем стили секции gifts */
+    .gifts p:first-child {
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Анимация появления новой секции */
+    .animal-help {
+      animation: fadeIn 0.8s ease-out 0.6s both;
+    }
+  </style>
+</head>
+
+<body>
+
+<section class="hero">
+  <!-- Динамический текст будет обновлен скриптом -->
+  <p id="header">Любi друзi</p>
+  <!-- Динамический текст будет обновлен скриптом -->
+  <p id="invitation-text">
+    Ми офіційно запрошуємо вас на<br>
+    наше весілля!
+  </p>
+  <time id="timedate"><strong>16.06.2026</strong></time>
+  
+  <!-- Таймер обратного отсчета -->
+  <div class="countdown-container">
+    <div class="countdown-title">До нашого свята залишилось:</div>
+    <div class="countdown">
+      <div class="countdown-item">
+        <span class="countdown-number" id="days">00</span>
+        <span class="countdown-label">днів</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number" id="hours">00</span>
+        <span class="countdown-label">годин</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number" id="minutes">00</span>
+        <span class="countdown-label">хвилин</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number" id="seconds">00</span>
+        <span class="countdown-label">секунд</span>
+      </div>
+    </div>
+    <div class="countdown-message" id="countdown-message"></div>
+  </div>
+</section>
+
+<section class="photo">
+  <img src="couple.jpg" alt="Ання та Джордан">
+</section>
+
+<section class="location">
+  <h2>Локація святкування:</h2>
+  <p>
+    Кишинів, Молдова<br>
+    Туристичний комплекс "Costești"
+  </p>
+ 
+  <a href="https://maps.google.com/?q=Costești+Tourist+Complex+Chișinău" target="_blank" rel="noopener">Відкрити на мапі</a>
+<p>
+    Для всіх наших гостей ми організовуємо проживання в готелі на два дні - <br> 16 та 17 червня.  
+  </p>
+</section>
+
+<!-- Секция трансфера (будет скрыта для некоторых гостей) -->
+<section class="transfer" id="transfer-section">
+  <p>
+    Буде організовано трансфер для всіх гостей з Одеси до місця святкування.
+    Детальна інформація буде надана ближче до дати.
+  </p>
+</section>
+
+<section class="dresscode">
+  <h2>Ми би дуже оцінили, якби ви обрали вбрання згідно дрес-коду із запропонованих кольорів нижче</h2>
+  <p>Так наші спільні весільні фотографії будуть в одному настрої!</p>
+  <p id="small">Ми обрали природні кольори для дрес-коду, щоб ви відчували себе гармонійно відносно концепції нашого заходу.</p>
+  <p id="small2">* це необов'язково - лише наша рекомендація</p>
+
+  <div class="colors">
+    <span class="c1" title="Темно-зелений"></span>
+    <span class="c2" title="Блакитний"></span>
+    <span class="c3" title="Коричневий"></span>
+    <span class="c4" title="Чорний"></span>
+    <span class="c5" title="Світло-бежевий"></span>
+  </div>
+</section>
+
+<section class="gifts">
+  <p>Ми не чекаємо подарунків — тільки гарний настрій 💛</p>
+</section>
+
+<!-- НОВАЯ СЕКЦИЯ: ДОПОМОГА ТВАРИНАМ -->
+<section class="animal-help">
+  <div class="animal-container">
+    <span class="animal-icon">🐾</span>
+    <h2 class="animal-title">Невелика прохання від наших сердець</h2>
+    <div class="animal-content">
+      <p class="animal-text">
+        Ми хочемо скористатися можливістю і попросити вас всіх принести по одній упаковці корму для песиків або котиків.
+      </p>
+      <p class="animal-text">
+        Разом ми відсвяткуємо день народження нашої родини і зробимо добру справу для тих, хто потребує нашої допомоги.
+      </p>
+      <p class="animal-note">
+        Будь-який корм буде дуже цінним внеском! 🐶🐱
+      </p>
+    </div>
+    <div class="animal-paws">
+      <span class="paw">🐾</span>
+      <span class="paw">🐾</span>
+      <span class="paw">🐾</span>
+      <span class="paw">🐾</span>
+      <span class="paw">🐾</span>
+    </div>
+  </div>
+</section>
+
+<!-- СЕКЦИЯ: КВІТИ -->
+<section class="flowers">
+  <div class="flowers-container">
+    <div class="flowers-icon">🌸</div>
+    <div class="flowers-content">
+      <p class="flowers-text">
+        А замість букету квітів - нехай кожен подарує нам одну квітку.<br>
+        Будь-яку за кольором і розміром. Лише одна!
+      </p>
+      <p class="flowers-text">
+        Після весілля у нас залишиться пам'ятний колективний подарунок
+      </p>
+      <p class="flowers-note">
+        Більш детальну інформацію ми надамо трохи ближче до дати!
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>До зустрічі!</p>
+  <p class="footer-note">З любов'ю, Владислав та Олександра</p>
+</footer>
+
+<!-- Подключение JavaScript -->
+<script src="script.js"></script>
+<script src="timer.js"></script>
+
+<!-- Скрипт для обработки параметров из URL -->
+<script>
+  // Запускаем после загрузки страницы
+  document.addEventListener('DOMContentLoaded', function() {
+    // Получаем параметр guest из URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestType = urlParams.get('guest');
+    
+    // Если нет параметра, используем значение по умолчанию
+    if (!guestType) {
+      // Если нет параметра, всё остается как есть (по умолчанию)
+      document.getElementById('transfer-section').style.display = 'block';
+      return;
+    }
+    
+    // Объект с персонализированными приветствиями
+    const guestGreetings = {
+      'default': 'Любi друзi',
+      'parents': 'Любi нашi батьки,',
+      'vadim_bossan': 'Любі Вадька i Боссан,',
+      'dad_ann': 'Любі батько та Анюта,',
+      'sanyok': 'Любий Саньок,',
+      'nika': 'Дорога Веронiка,',
+      'arisha': 'Дорога Арiша,',
+      'granies_v': 'Любi бабуся і дідусь,',
+      'grandma_alla': 'Люба Бабушка Алла,',
+      'grandma_lena': 'Люба Бабушка Олена,',
+      'liza_masha': 'Любі Ліза та Марія,',
+      'alyona_yura': "Любі Альоно, Юра, Олег та Софійка,",
+      'olya_sergey': 'Любі Оля та Сергій,',
+      'natasha_evg': "Любі Наталія, Євген та Микитка,",
+      'katya_vitya': 'Любi Катя, Вітя та Вікуля,',
+      'slavik_fam': 'Дорога родина Стоянових,',
+      'natasha_b': 'Люба Наташа,',
+      'anna_jordan': 'Любі Аня та Джордан,',
+      'anna_sergey': 'Любі Аня та Серьожка,',
+      'tanya_artem': 'Любі Таня та Артем,',
+      'yulia_misha': 'Любі Юля та Міша,',
+      'alina_ruslan': 'Любі Аліна та Руслан,',
+      'kuzmuki': 'Любі Віталій, Тетьяна, Валерія та Олександр,',
+      'lora_vanya': 'Любі Лариса та Іван,',
+      'dasha': 'Дорога Дашуля,',
+    };
+    
+    // Гости, для которых нужно использовать "Тебе" вместо "Вас"
+    const useTebeGuests = ['sanyok', 'nika', 'arisha', 'natasha_b', 'dasha'];
+    
+    // Гости, для которых нужно скрыть секцию трансфера
+    const hideTransferGuests = [
+      'kuzmuki', 'tanya_artem', 'anna_sergey', 'anna_jordan', 
+      'slavik_fam', 'alyona_yura', 'liza_masha', 'sanyok', 
+      'dad_ann', 'vadim_bossan'
+    ];
+    
+    // 1. Обновляем заголовок
+    const headerElement = document.getElementById('header');
+    if (headerElement && guestGreetings[guestType]) {
+      headerElement.textContent = guestGreetings[guestType];
+    }
+    
+    // 2. Обновляем текст приглашения ("Вас" или "Тебе")
+    const invitationElement = document.getElementById('invitation-text');
+    if (invitationElement) {
+      if (useTebeGuests.includes(guestType)) {
+        invitationElement.innerHTML = 'Ми офіційно запрошуємо тебе на<br>наше весілля!';
+      } else {
+        invitationElement.innerHTML = 'Ми офіційно запрошуємо вас на<br>наше весілля!';
+      }
+    }
+    
+    // 3. Управляем секцией трансфера
+    const transferSection = document.getElementById('transfer-section');
+    if (transferSection) {
+      if (hideTransferGuests.includes(guestType)) {
+        transferSection.style.display = 'none';
+      } else {
+        transferSection.style.display = 'block';
+      }
+    }
+    
+    // 4. Обновляем title страницы
+    if (guestGreetings[guestType]) {
+      const titleText = guestGreetings[guestType].replace(/,$/, '');
+      document.title = titleText + ' | Запрошення на весілля';
+    }
+  });
+</script>
+
+</body>
+</html>
