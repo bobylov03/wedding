@@ -79,6 +79,7 @@
         'dad_ann': 'Любі батько та Анюта,',
         'sanyok': 'Любий Саньок,',
         'max': 'Братан Максим',
+        'dima': 'Братан Дмитро',
         'nika': 'Дорога Веронiка,',
         'arisha': 'Дорога Арiша,',
         'granies_v': 'Любi бабуся і дідусь,',
@@ -101,12 +102,12 @@
         'dasha': 'Дорога Дашуля,',
       },
       
-      useTebeGuests: ['sanyok', 'nika', 'arisha', 'natasha_b', 'dasha'],
+      useTebeGuests: ['sanyok', 'nika', 'arisha', 'natasha_b', 'dasha', 'dima'],
       
       hideTransferGuests: [
         'kuzmuki', 'tanya_artem', 'anna_sergey', 'anna_jordan', 
         'slavik_fam', 'alyona_yura', 'liza_masha', 'sanyok', 
-        'dad_ann', 'vadim_bossan'
+        'dad_ann', 'vadim_bossan', 'dima'
       ]
     };
   }
