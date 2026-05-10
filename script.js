@@ -100,9 +100,10 @@
         'kuzmuki': 'Любі Віталій, Тетяна, Валерія та Олександр,',
         'lora_vanya': 'Любі Лариса та Іван,',
         'dasha': 'Дорога Дашуля,',
+        'nastya': 'Люба Анастасiя,',
       },
       
-      useTebeGuests: ['sanyok', 'nika', 'arisha', 'natasha_b', 'dasha', 'dima'],
+      useTebeGuests: ['sanyok', 'nika', 'arisha', 'natasha_b', 'dasha', 'dima', 'nastya'],
       
       hideTransferGuests: [
         'kuzmuki', 'tanya_artem', 'anna_sergey', 'anna_jordan', 
